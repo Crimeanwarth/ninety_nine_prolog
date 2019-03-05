@@ -250,9 +250,30 @@ func main() {
 	fmt.Println(prime_factors_mult(prime_factors(315)))
 
 	//P37: Calculate Euler's totient function phi(m)(improved)
-	fmt.Println("Calculate Euler's toient function phi(m) (improved)")
+	//fmt.Println("Calculate Euler's toient function phi(m) (improved)")
 	//Test
 
+	//P39: A list of prime numbers
+	fmt.Println("P39: A list of prime numbers")
+	//Test
+	fmt.Println(l_prime(100))
+
+	//P40: Goldbach's Conjecture
+	fmt.Println("P40: Goldbach's conjecture")
+	//Test
+	fmt.Println(goldbach(28))
+
+	//P41: Goldbach's list
+	fmt.Println("P41: Goldbach's list:")
+	//Test
+	fmt.Println(goldbach_list(1,200))
+
+	// Logic and Codes
+
+	//P46:: Truth tables for logical expressions.
+	fmt.Println("Truth tables for logical expressions")
+	//Test
+	table()
 }
 
 // Function declarations
@@ -578,7 +599,7 @@ func lsort(x []StringSlice)(y []StringSlice){ // Problem 28
 }
 
 func is_prime(n int)(token bool) {// Problem 31
-	if n == 1 || n == 0 || n == 2{
+	if n == 1 || n == 0 {
 		return false
 	} else {
 		for i := 2; i < n+1; i++ {
@@ -675,3 +696,86 @@ func prime_factors_mult(x []int)(y [][]int){// Problem 36
 	}
 	return
 }
+
+func l_prime(n int)(y []int){// Problem 39
+	for i:=0;i<n;i++{
+		if is_prime(i){
+			y=append(y,i)
+		}
+	}
+	return
+}
+
+func goldbach(n int)(y []int){// Problem 40
+	l := l_prime(n)
+	for len(y)<2 && n!=2{
+		for i:=0;i<len(l);i++{
+			for j:=0;j<len(l);j++{
+				if l[i]+l[j]==n {
+					y = append(y, l[i])
+					y = append(y, l[j])
+					return
+				}
+			}
+		}
+	}
+	return
+	}
+
+func goldbach_list(min int,max int)(y [][]int){ // Problem 41
+
+	for i:=min;i<max;i++{
+		if i%2==0 && i!=2{
+			y=append(y,goldbach(i))
+		}
+	}
+
+	return
+}
+
+func and(A bool,B bool)(y bool){// Problem 46
+	return B && A
+}
+
+func or(A bool,B bool)(y bool){// Problem 46
+	return B || A
+}
+
+func nand(A bool,B bool)(y bool){// Problem 46
+	return !(B && A)
+}
+
+func nor(A bool,B bool)(y bool){// Problem 46
+	return !(B || A)
+}
+
+func xor(A bool,B bool)(y bool){// Problem 46
+	return A != B
+}
+
+func table (){// Problem 46
+	a := []bool{true,true,false,false}
+	b := []bool{true,false,true,false}
+	fmt.Println("Truth table of and:")
+	for i:=0; i<4; i++{//and
+		fmt.Println(a[i],b[i],and(a[i],b[i]))
+	}
+	fmt.Println("Truth table of or:")
+	for i:=0; i<4; i++{//or
+		fmt.Println(a[i],b[i],or(a[i],b[i]))
+	}
+	fmt.Println("Truth table of nor:")
+	for i:=0; i<4; i++{//or
+		fmt.Println(a[i],b[i],nor(a[i],b[i]))
+	}
+	fmt.Println("Truth table of nand:")
+	for i:=0; i<4; i++{//or
+		fmt.Println(a[i],b[i],nand(a[i],b[i]))
+	}
+	fmt.Println("Truth table of xor:")
+	for i:=0; i<4; i++{//or
+		fmt.Println(a[i],b[i],xor(a[i],b[i]))
+	}
+
+ }
+

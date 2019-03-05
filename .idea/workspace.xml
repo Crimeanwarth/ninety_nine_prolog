@@ -19,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="672" column="23" selection-start-line="672" selection-start-column="23" selection-end-line="672" selection-end-column="23" />
+            <state relative-caret-position="454">
+              <caret line="781" lean-forward="true" selection-start-line="781" selection-end-line="781" />
             </state>
           </provider>
         </entry>
@@ -70,6 +70,11 @@
               <item name="ninety_nine_prolog" type="b2602c69:ProjectViewProjectNode" />
               <item name="ninety_nine_prolog" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ninety_nine_prolog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ninety_nine_prolog" type="462c0819:PsiDirectoryNode" />
+              <item name="arithmetic" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -83,6 +88,7 @@
     <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -172,14 +178,6 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="GoApplicationRunConfiguration">
-        <watch expression="*(*&quot;[][]int&quot;)(824634226512)" />
-        <watch expression="*(*&quot;[][]int&quot;)(824634226512)" />
-      </configuration>
-    </watches-manager>
-  </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
@@ -220,9 +218,6 @@
           <caret line="538" column="33" selection-start-line="538" selection-start-column="33" selection-end-line="538" selection-end-column="33" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/arithmetic/arithmetic.go">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://C:/Go/src/os/file_posix.go">
       <provider selected="true" editor-type-id="text-editor">
@@ -329,6 +324,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/arithmetic/arithmetic.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://C:/Go/src/runtime/proc.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
@@ -338,8 +336,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="672" column="23" selection-start-line="672" selection-start-column="23" selection-end-line="672" selection-end-column="23" />
+        <state relative-caret-position="454">
+          <caret line="781" lean-forward="true" selection-start-line="781" selection-end-line="781" />
         </state>
       </provider>
     </entry>
