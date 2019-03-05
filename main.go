@@ -270,10 +270,20 @@ func main() {
 
 	// Logic and Codes
 
-	//P46:: Truth tables for logical expressions.
-	fmt.Println("Truth tables for logical expressions")
+	//P46: Truth tables for logical expressions.
+	fmt.Println("P46: Truth tables for logical expressions")
 	//Test
 	table()
+
+	//P49: Gray code
+	fmt.Println("P49: Gray code")
+	//Test
+	fmt.Println(monotonic(3))
+
+	//P50: Huffman Code
+	fmt.Println("P50: Huffman code")
+	//Test
+	
 }
 
 // Function declarations
@@ -778,4 +788,102 @@ func table (){// Problem 46
 	}
 
  }
+/*func grey(n int)(l []byte){
+	var arr []byte
+ 	//base case
+ 	if n <= 0{
+ 		return
+	}else { // Generale case
+		arr = append(arr, 0)
+		arr = append(arr, 1)
+		for i:=2;i<(1<<n);
+	}
+
+
+}*/
+// Monotonic gray code function from https://github.com/larspensjo/go-monotonic-graycode.git
+func pi(n int) []int {// Problem 49
+	if n <= 1 {
+		return []int{0}
+	}
+	x := append(pi(n-1), n-1)
+	// Scramble the order
+	x2 := make([]int, len(x))
+	for i, k := range x {
+		dest := i + 1
+		if dest == len(x) {
+			dest = 0
+		}
+		x2[dest] = x[k]
+	}
+	return x2
+}
+
+func p(n int, j int, reverse bool) (ret [][]int) {// Problem 49
+	if n == 1 && j == 0 {
+		if !reverse {
+			ret = [][]int{{0}, {1}}
+		} else {
+			ret = [][]int{{1}, {0}}
+		}
+		return
+	}
+	if j < 0 || j >= n {
+		return
+	}
+	perm := pi(n - 1)
+	if !reverse {
+		for _, x := range p(n-1, j-1, false) {
+			t := []int{1}
+			for _, k := range perm {
+				t = append(t, x[k])
+			}
+			ret = append(ret, t)
+		}
+		for _, x := range p(n-1, j, false) {
+			t := append([]int{0}, x...)
+			ret = append(ret, t)
+		}
+	} else {
+		for _, x := range p(n-1, j, true) {
+			t := append([]int{0}, x...)
+			ret = append(ret, t)
+		}
+		for _, x := range p(n-1, j-1, true) {
+			t := []int{1}
+			for _, k := range perm {
+				t = append(t, x[k])
+			}
+			ret = append(ret, t)
+		}
+	}
+	return
+}
+
+func monotonic(n int) (ret [][]int) {// Problem 49
+	if n < 0 {
+		panic("Illegal argument")
+	}
+	for i := 0; i < n; i++ {
+		var p2 [][]int
+		if i%2 == 0 {
+			p2 = p(n, i, false)
+		} else {
+			p2 = p(n, i, true)
+		}
+		ret = append(ret, p2...)
+	}
+	return
+}
+
+// Convert a bit array to a number
+// Strictly speaking, the bits are reversed, but that shouldn't matter.
+func getValue(number []int) (ret int) {// Problem 49
+	power := 1
+	for _, bit := range number {
+		ret += power * bit
+		power *= 2
+	}
+	return
+}
 
